@@ -13,18 +13,19 @@ $("#add-media-Div").click (function () {
     }, 200);
 });
 
-let arrowButton = $("#select-section-Div");
-let image = $("#select-section")
+// Change --ENTIRE-- Section (Photo - Video)
+let arrowButton = $(".arrow-button")
+let image = $("#select-section");
 let movingButton = true;
 
 let photoSection = $("#photo-Div");
 let videoSection = $("#video-Div");
 
-// Change --ENTIRE-- Section (Photo - Video)
 let webSize = window.matchMedia("(max-width: 650px)");
 
 if (webSize.matches) {
-    $("#select-section-Div").remove();
+    $("#select-photo-Div").remove();
+    $("#select-video-Div").remove();
     
     $("#body").after("<div class='section-change-btn'><h3> <span class='green'>PHOTOS</span> <span style='color: white;'>/</span> <span class='blue'>VIDEOS</span> </h3>");
 }
@@ -67,7 +68,7 @@ $(".section-change-btn").click (function () {
 arrowButton.click(function() {
 
     if (movingButton) {
-        
+
         image.attr("src", "./assets/svg/caret-" + "right" + "-square-fill.svg");
 
         videoSection.css("z-index", "1");
@@ -88,3 +89,13 @@ arrowButton.click(function() {
 
     movingButton = !movingButton;
 });
+
+// Upload Images - Videos
+
+let imageUpload = document.querySelector("#background-img");
+let bgUpload = document.querySelector("#bg-upload");
+
+bgUpload.onchange = function () {
+    console.log(imageUpload.src = URL.createObjectURL(bgUpload.files[0]))
+    imageUpload.src = URL.createObjectURL(bgUpload.files[0])
+}
