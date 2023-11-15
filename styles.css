@@ -18,8 +18,6 @@ body {
     width: 100%;
     height: 100vh;
     
-    padding: 5px;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,34 +31,6 @@ body {
 
 .container > #body {
     flex:2;
-}
-
-
-/* Section Button (Photo - Video) */
-#select-section-Div {
-    width: 90%;
-
-    position: absolute;
-    top: 26%;
-    left: 5%;
-
-    text-align: end;
-
-    z-index: 2;
-}
-
-#select-section {
-    background-color: rgb(112, 234, 255);
-
-    width: 50px;
-
-    margin: 0;
-    padding: 0;
-    border-style: none;
-        border-radius: 50%;
-
-    font-size: 20px;
-    font-weight: 900;
 }
 
 /* Title */
@@ -79,7 +49,37 @@ h1 {
 
 /* Body */
 #body {
-    position: relative;
+    width: 100%;
+}
+
+.arrow-button {
+    rotate: 90deg;
+}
+
+#select-section {
+    background-color: rgb(112, 234, 255);
+
+    width: 50px;
+
+    margin: 0;
+    padding: 0;
+    border-style: none;
+        border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+#video-Div {
+    border: 2px groove black;
+
+    background-color: rgb(112, 234, 255);
+}
+
+#photo-Div {
+    border: 2px groove black;
+
+    background-color: rgb(129, 255, 112);
 }
 
 h2 {
@@ -94,31 +94,34 @@ h2 {
     text-align: center;
 }
 
-#video-Div {
+#video-container {   
     width: 100%;
-    height:100%;
+    height: 100%; 
 
-    border: 2px groove black;
-
-    background-color: rgb(112, 234, 255);
-
-    position: absolute;
-    left: 0;
-    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 5px;
 }
 
-#photo-Div {
-    width: 100%;
-    height:100%;
-
-    border: 2px groove black;
-
-    background-color: rgb(129, 255, 112);
-
-    position: absolute;
-    left: 0;
-    top: 0;
+.video img {
+    width: 95%;
 }
+
+#image-container {   
+    width: 100%;
+    height: 100%; 
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 5px;
+}
+
+.image img {
+    width: 95%;
+}
+
 
 /* section change buttons */
 .section-change-btn {
@@ -182,18 +185,4 @@ h2 {
         font-size: 60px;
         line-height: 2;
     }
-
-    /* Section Button (Photo - Video) */
-    #select-section-Div {
-        width: 90%;
-    
-        position: absolute;
-        top: 21%;
-        left: 5%;
-    
-        text-align: end;
-    
-        z-index: 2;
-    }
 }
-
