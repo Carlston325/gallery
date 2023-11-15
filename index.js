@@ -89,12 +89,31 @@ $("#add-media-Div").click (function () {
     }, 200);
 });
 
-// Upload Images - Videos
+// Upload Images
+let imageUpload = $(".image");
+let videoUpload = $(".video");
 
-let imageUpload = $(".photo");
-let bgUpload = $("#add-media-Div");
 
-bgUpload.onchange = function () {
-    console.log(imageUpload.src = URL.createObjectURL(bgUpload.files[0]))
-    imageUpload.src = URL.createObjectURL(bgUpload.files[0])
-}
+        // Upload Photos
+        document.querySelector("#add-media-Div > label").setAttribute("for","image-upload");
+        document.querySelector("#image-upload").setAttribute("id","image-upload");
+
+        let imageInput = $(".image-upload");
+        
+        imageInput.onchange = function () {
+            console.log(imageUpload.src = URL.createObjectURL(imageInput.files[0]));
+            imageUpload.src = URL.createObjectURL(imageInput.files[0]);
+        }
+
+        // Upload Videos
+        document.querySelector("#add-media-Div > label").setAttribute("for","video-upload");
+        document.querySelector("#image-upload").setAttribute("id","video-upload");
+
+        let videoInput = $(".video-upload");
+        
+        videoInput.onchange = function () {
+            console.log(videoUpload.src = URL.createObjectURL(videoInput.files[0]));
+            videoUpload.src = URL.createObjectURL(videoInput.files[0]);
+        }
+
+
