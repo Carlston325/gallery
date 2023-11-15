@@ -56,16 +56,16 @@ h1 {
     rotate: 90deg;
 }
 
-#photo-section {
+#video-section {
     background-color: rgb(129, 255, 112);
 }
 
-#video-section {
+#photo-section {
     background-color: rgb(112, 234, 255);
 }
 
 .select-section {
-        width: 50px;
+    width: 50px;
 
     margin: 0;
     padding: 0;
@@ -110,7 +110,7 @@ h2 {
     gap: 5px;
 }
 
-.video img {
+.video {
     width: 95%;
 }
 
@@ -119,13 +119,13 @@ h2 {
     height: 100%; 
     
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 5px;
 }
 
-.image img {
-    width: 95%;
+.image {
+   width: 95%;
 }
 
 
@@ -174,7 +174,7 @@ h2 {
     font-weight: 900
 }
 
-#image-upload {
+.media-input {
     display: none;
 }
 
