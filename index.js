@@ -1,27 +1,14 @@
-// Add Media --BUTTON CLICK--
-$("#add-media-Div").click (function () {
-
-    let activeButton = $("#add-media-Div");
-    let textFlash = $(".btn");
-    
-    activeButton.addClass("btn-shadow");
-    textFlash.addClass("text-flash");
-
-    setTimeout(function() {
-        activeButton.removeClass("btn-shadow");
-        textFlash.removeClass("text-flash");
-    }, 200);
-});
-
-// Change --ENTIRE-- Section (Photo - Video)
+// Change Section --SMALL WEBPAGE BUTTON-- (Photo - Video)
 let arrowButton = $(".arrow-button")
-let image = $("#select-section");
+let image = $(".select-section");
 let movingButton = true;
 
 let photoSection = $("#photo-Div");
 let videoSection = $("#video-Div");
 
 let webSize = window.matchMedia("(max-width: 650px)");
+
+photoSection.slideUp();
 
 if (webSize.matches) {
     $("#select-photo-Div").remove();
@@ -41,59 +28,71 @@ $(".section-change-btn").click (function () {
 
     if (movingButton) {
 
-        videoSection.css("z-index", "1");
-        photoSection.css("z-index", "0");
-
-        $(".blue").addClass("text-flash");
-
-        setTimeout(function() {
-            $(".blue").removeClass("text-flash");
-        }, 100);
-    } else {
-
-        videoSection.css("z-index", "0");
-        photoSection.css("z-index", "1");
+        videoSection.slideUp();
+        photoSection.slideDown();
 
         $(".green").addClass("text-flash");
 
         setTimeout(function() {
             $(".green").removeClass("text-flash");
         }, 100);
+    } else {
+
+        videoSection.slideDown();
+        photoSection.slideUp();
+
+        $(".blue").addClass("text-flash");
+
+        setTimeout(function() {
+            $(".blue").removeClass("text-flash");
+        }, 100);
     }
 
     movingButton = !movingButton;   
 });
 
-// Change Section --BUTTON-- (Photo - Video)
+// Change Section --ARROW-- (Photo - Video)
 arrowButton.click(function() {
 
     if (movingButton) {
+        // photo section
+        console.log("collapse video");
 
-        image.attr("src", "./assets/svg/caret-" + "right" + "-square-fill.svg");
-
-        videoSection.css("z-index", "1");
-        photoSection.css("z-index", "0");
-
-        arrowButton.css("text-align", "start");
-        image.css("background-color", "rgb(129, 255, 112)");
+        videoSection.slideUp();
+        photoSection.slideDown();
     } else {
+        // video section
+        console.log("collapse photo");
 
-        image.attr("src", "./assets/svg/caret-" + "left" + "-square-fill.svg");
-        
-        videoSection.css("z-index", "0");
-        photoSection.css("z-index", "1");
-
-        arrowButton.css("text-align", "end");
-        image.css("background-color", "rgb(112, 234, 255)");
+        videoSection.slideDown();
+        photoSection.slideUp();
     }
 
     movingButton = !movingButton;
 });
 
+// Change Section --SECTION-- (Photo - Video)
+
+
+// Add Media --BUTTON CLICK--
+$("#add-media-Div").click (function () {
+
+    let activeButton = $("#add-media-Div");
+    let textFlash = $(".btn");
+    
+    activeButton.addClass("btn-shadow");
+    textFlash.addClass("text-flash");
+
+    setTimeout(function() {
+        activeButton.removeClass("btn-shadow");
+        textFlash.removeClass("text-flash");
+    }, 200);
+});
+
 // Upload Images - Videos
 
-let imageUpload = document.querySelector("#background-img");
-let bgUpload = document.querySelector("#bg-upload");
+let imageUpload = $(".photo");
+let bgUpload = $("#add-media-Div");
 
 bgUpload.onchange = function () {
     console.log(imageUpload.src = URL.createObjectURL(bgUpload.files[0]))
