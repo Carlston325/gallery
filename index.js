@@ -1,14 +1,15 @@
-// Change Section --SMALL WEBPAGE BUTTON-- (Photo - Video)
 let arrowButton = $(".arrow-button")
-let image = $(".select-section");
 let movingButton = true;
 
 let photoSection = $("#photo-Div");
 let videoSection = $("#video-Div");
 
+// DOCUMENT
+photoSection.slideUp();
+
+// Change Section --SMALL WEBPAGE BUTTON-- (Photo - Video)
 let webSize = window.matchMedia("(max-width: 650px)");
 
-photoSection.slideUp();
 
 if (webSize.matches) {
     $("#select-photo-Div").remove();
@@ -89,31 +90,33 @@ $("#add-media-Div").click (function () {
     }, 200);
 });
 
-// Upload Images
-let imageUpload = $(".image");
-let videoUpload = $(".video");
+// Add MORE Photos & Videos (BOXES)
+let i = 1;
 
+$("#add-videos").click (function () {
+    $("#add-videos").before("<div class='video-content'><img class='video "+ i + "' src='./assets/Videos/videoPlaceholder.jpg'></div>");
+});
 
-        // Upload Photos
-        document.querySelector("#add-media-Div > label").setAttribute("for","image-upload");
-        document.querySelector("#image-upload").setAttribute("id","image-upload");
+$("#add-photos").click (function () {
+    $("#add-photos").before("<div class='image-content'><img class='image' src='./assets/Images/imagePlaceholder.png'></div>");
+})
 
-        let imageInput = $(".image-upload");
-        
-        imageInput.onchange = function () {
-            console.log(imageUpload.src = URL.createObjectURL(imageInput.files[0]));
-            imageUpload.src = URL.createObjectURL(imageInput.files[0]);
-        }
+// Upload Photo OR Video Media
 
-        // Upload Videos
-        document.querySelector("#add-media-Div > label").setAttribute("for","video-upload");
-        document.querySelector("#image-upload").setAttribute("id","video-upload");
+let imageUpload = document.querySelector("#background-img");
+let bgUpload = document.querySelector("#bg-upload");
 
-        let videoInput = $(".video-upload");
-        
-        videoInput.onchange = function () {
-            console.log(videoUpload.src = URL.createObjectURL(videoInput.files[0]));
-            videoUpload.src = URL.createObjectURL(videoInput.files[0]);
-        }
+bgUpload.onchange = function () {
+    console.log(imageUpload.src = URL.createObjectURL(bgUpload.files[0]))
+    imageUpload.src = URL.createObjectURL(bgUpload.files[0])
+}
+ 
 
-
+    // To add media to each box uniquely code could be:
+    // if (i === 0 ) {
+        // add media to the class of zero
+    // } else {
+        // for (i = 1; i === img.length; i++ ) {
+            // add media to the boxes
+        // }
+    // }
