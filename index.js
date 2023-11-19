@@ -17,7 +17,7 @@ if (webSize.matches) {
     $("#select-photo-Div").remove();
     $("#select-video-Div").remove();
     
-    $("#body").after("<div class='section-change-btn'><h3> <span class='green'>PHOTOS</span> <span style='color: white;'>/</span> <span class='blue'>VIDEOS</span> </h3>");
+    $("#body").after("<div id='selector' class='card section-change-btn'><h4> <span class='green'>PHOTOS</span> <span style='color: white;'>/</span> <span class='blue'>VIDEOS</span> </h4>");
 }
 
 $(".section-change-btn").click (function () {
@@ -71,106 +71,42 @@ arrowButton.click(function() {
     movingButton = !movingButton;
 });
 
-// Change Section --SECTION-- (Photo - Video)
-
-
-// Add Media --BUTTON CLICK--
-$("#add-media-Div").click (function () {
-
-    let activeButton = $("#add-media-Div");
-    let textFlash = $(".btn");
-    
-    activeButton.addClass("btn-shadow");
-    textFlash.addClass("text-flash");
-
-    setTimeout(function() {
-        activeButton.removeClass("btn-shadow");
-        textFlash.removeClass("text-flash");
-    }, 200);
-});
-
-
 // Add MORE Photos & Videos (BOXES)
+// video
 let i = 1;
+let amountOfVideoBoxes = $(".video").length;
 
 $("#add-videos").click (function () {
-  
-    let amountOfVideoBoxes = $(".video").length;
-
     for (i; i <= amountOfVideoBoxes; i++) {
-        $("#add-videos").before("<div class='video-content'><label for='video-upload'><img class='video V"+ i + "' src='./assets/Videos/videoPlaceholder.jpg'></label><input type='file' name='Videos' id='video-upload' class='video-input media'></div>");
+        $("#add-videos").before("<div class='video-content'><img src='./assets/Videos/videoPlaceholder.jpg' id='video' class='video V"+ i + "'></div>");
     }
 }); 
-
-
+// photo
 let x = 1;
+let amountOfImageBoxes = $(".image").length;
 
 $("#add-photos").click (function () {
-  
-    let amountOfImageBoxes = $(".image").length;
-
     for (x; x <= amountOfImageBoxes; x++) {
-        $("#add-photos").before("<div class='image-content'><label for='image-upload'><img class='image I"+ x + "' src='./assets/Images/imagePlaceholder.jpg'><input type='file' name='Images' id='image-upload' class='image-input media'></div>");
+        $("#add-photos").before("<div class='image-content'><img src='./assets/Images/imagePlaceholder.jpg' id='image' class='image I"+ x + "'></div>");
     }
 }); 
 
 // Upload Photo OR Video Media
-function addPhoto (image) {
-    var upload = document.getElementById("image-upload");
-    image.src = URL.createObjectURL(upload.files[0])
-}
+// video
+let video = document.querySelector("#video");
+let videoInput = document.querySelector("#video-upload");
 
-var imageBoxes = document.querySelectorAll(".image").length;
-
-for (var y = 0; y <= imageBoxes; y++) {
-
-    document.querySelectorAll(".image")[y].addEventListener("click", addPhoto(this)); 
-}
-
-
-
-
-
-// function addImage () {
-//     console.log(document.querySelectorAll(".image").length)
+videoInput.onchange = function () {
+    console.log(video.src = URL.createObjectURL(videoInput.files[0]));
+    video.src = URL.createObjectURL(videoInput.files[0]);
+};
     
-//     let image = document.querySelectorAll(".image")["I" + y];
-//     let uploadImage = $("#image-upload");
+// photo
+let image = document.querySelector("#image");
+let imageInput = document.querySelector("#image-upload");
 
-//     uploadImage.onchange = function () {
-//         image.src = URL.createObjectURL(uploadImage.files[0])
-//     }
-// }
+imageInput.onchange = function () {
+    console.log(image.src = URL.createObjectURL(imageInput.files[0]));
+    image.src = URL.createObjectURL(imageInput.files[0]);
+};
 
-// let imageBoxAmount = document.querySelectorAll(".image").length;
-
-// for (let y = 0; y <= imageBoxAmount; y++) {
-    
-//     $(".I"+ y).click (addImage ());
-// }
-// let z = 1;
-
-// $(".video-btn").click (function () {
-//     console.log(z)
-//     if (z - 1 === 1) {    
-//         let image = document.getElementByClassName("V0");
-//         let uploadImage = $("#video-upload");
-    
-//         uploadImage.onchange = function () {
-//             image.src = URL.createObjectURL(uploadImage.files[0])
-//         }
-       
-//     } else {
-//        console.log("worksvideo")
-
-//             let image = document.getElementById("I" + z);
-//             let uploadImage = $("#video-upload");
-
-//             uploadImage.onchange = function () {
-//                 image.src = URL.createObjectURL(uploadImage.files[0])
-//             }
-        
-//     }
-
-//     z++
-// });
