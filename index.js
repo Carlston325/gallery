@@ -7,6 +7,8 @@ let videoSection = $("#video-Div");
 // DOCUMENT
 photoSection.slideUp();
 
+$(".image-btn").remove();
+
 // Change Section --SMALL WEBPAGE BUTTON-- (Photo - Video)
 let webSize = window.matchMedia("(max-width: 650px)");
 
@@ -57,14 +59,11 @@ arrowButton.click(function() {
 
     if (movingButton) {
         // photo section
-        console.log("collapse video");
-
         videoSection.slideUp();
         photoSection.slideDown();
+
     } else {
         // video section
-        console.log("collapse photo");
-
         videoSection.slideDown();
         photoSection.slideUp();
     }
@@ -90,33 +89,88 @@ $("#add-media-Div").click (function () {
     }, 200);
 });
 
+
 // Add MORE Photos & Videos (BOXES)
 let i = 1;
 
 $("#add-videos").click (function () {
-    $("#add-videos").before("<div class='video-content'><img class='video "+ i + "' src='./assets/Videos/videoPlaceholder.jpg'></div>");
-});
+  
+    let amountOfVideoBoxes = $(".video").length;
+
+    for (i; i <= amountOfVideoBoxes; i++) {
+        $("#add-videos").before("<div class='video-content'><label for='video-upload'><img class='video V"+ i + "' src='./assets/Videos/videoPlaceholder.jpg'></label><input type='file' name='Videos' id='video-upload' class='video-input media'></div>");
+    }
+}); 
+
+
+let x = 1;
 
 $("#add-photos").click (function () {
-    $("#add-photos").before("<div class='image-content'><img class='image' src='./assets/Images/imagePlaceholder.png'></div>");
-})
+  
+    let amountOfImageBoxes = $(".image").length;
+
+    for (x; x <= amountOfImageBoxes; x++) {
+        $("#add-photos").before("<div class='image-content'><label for='image-upload'><img class='image I"+ x + "' src='./assets/Images/imagePlaceholder.jpg'><input type='file' name='Images' id='image-upload' class='image-input media'></div>");
+    }
+}); 
 
 // Upload Photo OR Video Media
-
-let imageUpload = document.querySelector("#background-img");
-let bgUpload = document.querySelector("#bg-upload");
-
-bgUpload.onchange = function () {
-    console.log(imageUpload.src = URL.createObjectURL(bgUpload.files[0]))
-    imageUpload.src = URL.createObjectURL(bgUpload.files[0])
+function addPhoto (image) {
+    var upload = document.getElementById("image-upload");
+    image.src = URL.createObjectURL(upload.files[0])
 }
- 
 
-    // To add media to each box uniquely code could be:
-    // if (i === 0 ) {
-        // add media to the class of zero
-    // } else {
-        // for (i = 1; i === img.length; i++ ) {
-            // add media to the boxes
-        // }
-    // }
+var imageBoxes = document.querySelectorAll(".image").length;
+
+for (var y = 0; y <= imageBoxes; y++) {
+
+    document.querySelectorAll(".image")[y].addEventListener("click", addPhoto(this)); 
+}
+
+
+
+
+
+// function addImage () {
+//     console.log(document.querySelectorAll(".image").length)
+    
+//     let image = document.querySelectorAll(".image")["I" + y];
+//     let uploadImage = $("#image-upload");
+
+//     uploadImage.onchange = function () {
+//         image.src = URL.createObjectURL(uploadImage.files[0])
+//     }
+// }
+
+// let imageBoxAmount = document.querySelectorAll(".image").length;
+
+// for (let y = 0; y <= imageBoxAmount; y++) {
+    
+//     $(".I"+ y).click (addImage ());
+// }
+// let z = 1;
+
+// $(".video-btn").click (function () {
+//     console.log(z)
+//     if (z - 1 === 1) {    
+//         let image = document.getElementByClassName("V0");
+//         let uploadImage = $("#video-upload");
+    
+//         uploadImage.onchange = function () {
+//             image.src = URL.createObjectURL(uploadImage.files[0])
+//         }
+       
+//     } else {
+//        console.log("worksvideo")
+
+//             let image = document.getElementById("I" + z);
+//             let uploadImage = $("#video-upload");
+
+//             uploadImage.onchange = function () {
+//                 image.src = URL.createObjectURL(uploadImage.files[0])
+//             }
+        
+//     }
+
+//     z++
+// });
