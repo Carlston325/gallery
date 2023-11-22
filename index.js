@@ -74,26 +74,27 @@ arrowButton.click(function() {
 // Add MORE Photos & Videos (BOXES)
 // video
 let i = 1;
-let amountOfVideoBoxes = $(".video").length;
+
 
 $("#add-videos").click (function () {
+    let amountOfVideoBoxes = $(".video").length;
     for (i; i <= amountOfVideoBoxes; i++) {
-        $("#add-videos").before("<div class='video-content'><img src='./assets/Videos/videoPlaceholder.jpg' id='video' class='video V"+ i + "'></div>");
+        $("#add-videos").before("<div class='video-content'><label for='video-upload'><img src='./assets/Videos/videoPlaceholder.jpg' class='video V"+ amountOfVideoBoxes + "'></label><input type='file' name='Videos' id='video-upload' class='video-input media'></div>");
     }
 }); 
 // photo
 let x = 1;
-let amountOfImageBoxes = $(".image").length;
 
 $("#add-photos").click (function () {
+    let amountOfImageBoxes = $(".image").length;
     for (x; x <= amountOfImageBoxes; x++) {
-        $("#add-photos").before("<div class='image-content'><img src='./assets/Images/imagePlaceholder.jpg' id='image' class='image I"+ x + "'></div>");
+        $("#add-photos").before("<div class='image-content'><label for='image-upload' id='image'><img src='./assets/Images/imagePlaceholder.jpg' class='image I"+ amountOfImageBoxes + "'></label><input type='file' name='Images' id='image-upload' class='image-input media'></div>");
     }
 }); 
 
 // Upload Photo OR Video Media
 // video
-let video = document.querySelector("#video");
+let video = document.querySelector(".video");
 let videoInput = document.querySelector("#video-upload");
 
 videoInput.onchange = function () {
@@ -102,11 +103,14 @@ videoInput.onchange = function () {
 };
     
 // photo
-let image = document.querySelector("#image");
+let image = document.querySelector(".image");
 let imageInput = document.querySelector("#image-upload");
 
 imageInput.onchange = function () {
     console.log(image.src = URL.createObjectURL(imageInput.files[0]));
     image.src = URL.createObjectURL(imageInput.files[0]);
 };
+
+
+
 
