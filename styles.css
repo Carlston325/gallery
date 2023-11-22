@@ -132,7 +132,7 @@ h2 {
    border: 2px solid black;
 }
 
-#add-photos > label > h3{
+#add-photos > h3{
     width: 50%;
 
     background-color: rgb(255, 255, 30);
@@ -143,7 +143,7 @@ h2 {
     font-size: 100px;
 }
 
-#add-videos > label > h3{
+#add-videos > h3{
     width: 50%;
 
     background-color: rgb(255, 255, 30);
