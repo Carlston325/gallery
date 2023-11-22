@@ -22,17 +22,17 @@
             <div id="video-Div">
                 <h2 id="video-title">
                     <div id="select-video-Div" class="btn arrow-button">
-                        <img id="video-section" class="select-section" src="./assets/svg/caret-left-square-fill.svg" alt="left & right arrows"> 
+                        <img id="video-section" class="select-section" src="./assets/svg/caret-left-square-fill.svg" alt="left & right arrows">
                     </div>
                     Videos
                 </h2>
                 <div id="video-container">
                     <div class="video-content">
-                        <img src="./assets/Videos/videoPlaceholder.jpg" id="video" class="video V0" >
+                        <label for="video-upload"><img src="./assets/Videos/videoPlaceholder.jpg" class="video V0" ></label>
+                        <input type="file" name="Videos" id="video-upload" class="video-input media">
                     </div>
                     <div id="add-videos">
-                        <label for="video-upload"><h3>+</h3></label>
-                        <input type="file" name="Videos" id="video-upload" class="video-input media">
+                        <h3>+</h3>
                     </div>
                 </div>
             </div>
@@ -45,11 +45,11 @@
                 </h2>
                 <div id="image-container">
                     <div class="image-content">
-                        <img src="./assets/Images/imagePlaceholder.jpg" id="image" class="image I0"  >
+                        <label for="image-upload" id="image"><img src="./assets/Images/imagePlaceholder.jpg" class="image I0"  ></label>
+                        <input type="file" name="Images" id="image-upload" class="image-input media">
                     </div>
                     <div id="add-photos">
-                        <label for="image-upload" id="image"><h3>+</h3></label>
-                        <input type="file" name="Images" id="image-upload" class="image-input media">
+                        <h3>+</h3>
                     </div>
                 </div>
             </div>
