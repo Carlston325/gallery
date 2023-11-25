@@ -86,7 +86,7 @@ h2 {
 }
 
 #video-Div {
-    
+    padding: 10px;
     border: 2px groove black;
 
     background-color: rgb(112, 234, 255);
@@ -100,30 +100,30 @@ h2 {
 
 #video-container {   
     width: 100%;
-    height: 100%; 
+    height: 100%;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 5px;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
 }
 
 .video {
-    width: 95%;
+    width: 90%;
     border: 2px solid black;
 }
 
 #image-container {   
     width: 100%;
-    height: 100%; 
-    
+    height: 100%;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 5px;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
 }
 
@@ -132,26 +132,32 @@ h2 {
    border: 2px solid black;
 }
 
-#add-photos > h3{
-    width: 50%;
-
+#add-photos > label > h3{
     background-color: rgb(255, 255, 30);
 
     margin: 5px;
+    padding: 0px 60px;
     border: 2px solid black;
     
     font-size: 100px;
 }
 
-#add-videos > h3{
-    width: 50%;
-
+#add-videos > label > h3{
     background-color: rgb(255, 255, 30);
 
     margin: 5px;
+    padding: 0px 60px;
     border: 2px solid black;
     
     font-size: 100px;
+}
+
+#add-videos {
+    order: 1;
+}
+
+#add-photos {
+    order: 1;
 }
 
 /* section change button */
