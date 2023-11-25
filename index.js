@@ -1,8 +1,8 @@
-let arrowButton = $(".arrow-button")
+const arrowButton = $(".arrow-button")
 let movingButton = true;
 
-let photoSection = $("#photo-Div");
-let videoSection = $("#video-Div");
+const photoSection = $("#photo-Div");
+const videoSection = $("#video-Div");
 
 // DOCUMENT
 photoSection.slideUp();
@@ -10,7 +10,7 @@ photoSection.slideUp();
 $(".image-btn").remove();
 
 // Change Section --SMALL WEBPAGE BUTTON-- (Photo - Video)
-let webSize = window.matchMedia("(max-width: 650px)");
+const webSize = window.matchMedia("(max-width: 650px)");
 
 
 if (webSize.matches) {
@@ -22,7 +22,7 @@ if (webSize.matches) {
 
 $(".section-change-btn").click (function () {
 
-    let sectionChangeBTN = $(".section-change-btn");
+    const sectionChangeBTN = $(".section-change-btn");
     sectionChangeBTN.addClass("btn-shadow");
     
     setTimeout(function() {
@@ -73,41 +73,37 @@ arrowButton.click(function() {
 
 // Add MORE Photos & Videos (BOXES)
 // video
-let i = 1;
-
-
-$("#add-videos").click (function () {
-    let amountOfVideoBoxes = $(".video").length;
-    for (i; i <= amountOfVideoBoxes; i++) {
-        $("#add-videos").before("<div class='video-content'><label for='video-upload'><img src='./assets/Videos/videoPlaceholder.jpg' class='video V"+ amountOfVideoBoxes + "'></label><input type='file' name='Videos' id='video-upload' class='video-input media'></div>");
-    }
-}); 
+const videoAddBTN = document.querySelector("#add-videos");
+function AddNewVideo () {
+    const newVid = document.createElement("img");
+    newVid.setAttribute("class", "video V")
+    newVid.setAttribute("src", "./assets/Videos/videoPlaceholder.jpg"); 
+    document.querySelector("#video-container").appendChild(newVid);
+}
+videoAddBTN.addEventListener("click", AddNewVideo);
 // photo
-let x = 1;
-
-$("#add-photos").click (function () {
-    let amountOfImageBoxes = $(".image").length;
-    for (x; x <= amountOfImageBoxes; x++) {
-        $("#add-photos").before("<div class='image-content'><label for='image-upload' id='image'><img src='./assets/Images/imagePlaceholder.jpg' class='image I"+ amountOfImageBoxes + "'></label><input type='file' name='Images' id='image-upload' class='image-input media'></div>");
-    }
-}); 
-
-// Upload Photo OR Video Media
-// video
-let video = document.querySelector(".video");
-let videoInput = document.querySelector("#video-upload");
+const photoAddBTN = $("#add-photos");
+function AddNewImage () {
+    const newImg = document.createElement("img");
+    newImg.setAttribute("class", "image I")
+    newImg.src = "./assets/Images/imagePlaceholder.jpg"
+    document.querySelector("#image-container").appendChild(newImg);
+}
+photoAddBTN.click (AddNewImage);
+// Upload Photos & Videos
+// Videos
+let video = document.querySelector(".V0");
+const videoInput = document.querySelector("#video-upload");
 
 videoInput.onchange = function () {
-    console.log(video.src = URL.createObjectURL(videoInput.files[0]));
     video.src = URL.createObjectURL(videoInput.files[0]);
 };
-    
-// photo
-let image = document.querySelector(".image");
-let imageInput = document.querySelector("#image-upload");
+
+// Photos    
+let image = document.querySelector(".I0");
+const imageInput = document.querySelector("#image-upload");
 
 imageInput.onchange = function () {
-    console.log(image.src = URL.createObjectURL(imageInput.files[0]));
     image.src = URL.createObjectURL(imageInput.files[0]);
 };
 
