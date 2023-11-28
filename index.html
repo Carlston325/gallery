@@ -27,10 +27,9 @@
                     Videos
                 </h2>
                 <div id="video-container">
-                    <img src="./assets/Videos/videoPlaceholder.jpg" class="video V0">
-                    <div id="add-videos">
-                        <label for="video-upload"><h3>+</h3></label>
-                        <input type="file" id="video-upload" class="video-input media">
+                    <div id="vidBTN">
+                        <label id="inputStyle" for="inputVideo"><input type="file" id="inputVideo" />Choose Video</label>
+                        <button id="addVideo">Add Image</button>
                     </div>
                 </div>
             </div>
@@ -42,12 +41,19 @@
                     Photos
                 </h2>
                 <div id="image-container">
-                    <div class="image-content">
-                        <img src="./assets/Images/imagePlaceholder.jpg" class="image I0">
-                    </div>
-                    <div id="add-photos">
-                        <label for="image-upload" id="image"><h3>+</h3></label>
-                        <input type="file" id="image-upload" class="image-input media">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I0">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I1">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I2">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I3">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I4">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I5">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I6">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I7">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I8">
+                    <img src="./assets/Images/imagePlaceholder.jpg" class="image I9">
+                    <div id="imgBTN">
+                        <input type="file" id="inputImage" />
+                        <button onclick="addImage()">Add Image</button>
                     </div>
                 </div>
             </div>
