@@ -71,42 +71,73 @@ arrowButton.click(function() {
     movingButton = !movingButton;
 });
 
-// Add MORE Photos & Videos (BOXES)
-// video
-const videoAddBTN = document.querySelector("#add-videos");
-function AddNewVideo () {
-    const newVid = document.createElement("img");
-    newVid.setAttribute("class", "video V")
-    newVid.setAttribute("src", "./assets/Videos/videoPlaceholder.jpg"); 
-    document.querySelector("#video-container").appendChild(newVid);
-}
-videoAddBTN.addEventListener("click", AddNewVideo);
-// photo
-const photoAddBTN = $("#add-photos");
-function AddNewImage () {
-    const newImg = document.createElement("img");
-    newImg.setAttribute("class", "image I")
-    newImg.src = "./assets/Images/imagePlaceholder.jpg"
-    document.querySelector("#image-container").appendChild(newImg);
-}
-photoAddBTN.click (AddNewImage);
 // Upload Photos & Videos
+
+function addImage() {
+    var input = document.getElementById("inputVideo");
+    var file = input.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        var img = new Image();
+        img.src = e.target.result;
+        img.classList.add("video");
+        
+        var div = document.createElement("div");
+        div.classList.add("video-box");
+        
+        div.appendChild(img);
+        document.getElementById("video-container").appendChild(div);
+    }
+
+    reader.readAsDataURL(file);
+}
+
+$("#addVideo").click(addImage)
+
 // Videos
-let video = document.querySelector(".V0");
-const videoInput = document.querySelector("#video-upload");
+// document.querySelector("#videoBoxAdd").addEventListener("click", addImage);
 
-videoInput.onchange = function () {
-    video.src = URL.createObjectURL(videoInput.files[0]);
-};
+// function addImage() {
+//     var input = document.getElementById("inputImage");
+//     var file = input.files[0];
+//     var reader = new FileReader();
 
-// Photos    
-let image = document.querySelector(".I0");
-const imageInput = document.querySelector("#image-upload");
+//     reader.onload = function(e) {
+//         var img = new Image();
+//         img.src = e.target.result;
 
-imageInput.onchange = function () {
-    image.src = URL.createObjectURL(imageInput.files[0]);
-};
+//         var div = document.createElement('div');
+//         div.className = 'videoHolder';
 
+//         div.appendChild(img);
+//         document.querySelector("#image-container").appendChild(div);
+//     }
+
+//     reader.readAsDataURL(file);
+// }
+
+// // Photos   
+// document.querySelector("#imageBoxAdd").addEventListener("click", addImage);
+
+// function addImage() {
+//     var input = document.getElementById('inputImage');
+//     var file = input.files[0];
+//     var reader = new FileReader();
+
+//     reader.onload = function(e) {
+//         var img = document.getElementsByClassName("image");
+//         img.src = e.target.result;
+
+//         var div = document.createElement('div');
+//         div.className = 'dynamic-element';
+
+//         div.appendChild(img);
+//         document.querySelector("#image-container").appendChild(div);
+//     }
+
+//     reader.readAsDataURL(file);
+// }
 
 
 
