@@ -72,8 +72,8 @@ arrowButton.click(function() {
 });
 
 // Upload Photos & Videos
-
-function addImage() {
+// Video
+function addVideo() {
     var input = document.getElementById("inputVideo");
     var file = input.files[0];
     var reader = new FileReader();
@@ -82,7 +82,7 @@ function addImage() {
         var img = new Image();
         img.src = e.target.result;
         img.classList.add("video");
-        
+
         var div = document.createElement("div");
         div.classList.add("video-box");
         
@@ -93,51 +93,26 @@ function addImage() {
     reader.readAsDataURL(file);
 }
 
-$("#addVideo").click(addImage)
+$("#addVideo").click(addVideo);
+// Image
+function addImage() {
+    var input = document.getElementById("inputImage");
+    var file = input.files[0];
+    var reader = new FileReader();
 
-// Videos
-// document.querySelector("#videoBoxAdd").addEventListener("click", addImage);
+    reader.onload = function(e) {
+        var img = new Image();
+        img.src = e.target.result;
+        img.classList.add("image");
 
-// function addImage() {
-//     var input = document.getElementById("inputImage");
-//     var file = input.files[0];
-//     var reader = new FileReader();
+        var div = document.createElement("div");
+        div.classList.add("image-box");
+        
+        div.appendChild(img);
+        document.getElementById("image-container").appendChild(div);
+    }
 
-//     reader.onload = function(e) {
-//         var img = new Image();
-//         img.src = e.target.result;
+    reader.readAsDataURL(file);
+}
 
-//         var div = document.createElement('div');
-//         div.className = 'videoHolder';
-
-//         div.appendChild(img);
-//         document.querySelector("#image-container").appendChild(div);
-//     }
-
-//     reader.readAsDataURL(file);
-// }
-
-// // Photos   
-// document.querySelector("#imageBoxAdd").addEventListener("click", addImage);
-
-// function addImage() {
-//     var input = document.getElementById('inputImage');
-//     var file = input.files[0];
-//     var reader = new FileReader();
-
-//     reader.onload = function(e) {
-//         var img = document.getElementsByClassName("image");
-//         img.src = e.target.result;
-
-//         var div = document.createElement('div');
-//         div.className = 'dynamic-element';
-
-//         div.appendChild(img);
-//         document.querySelector("#image-container").appendChild(div);
-//     }
-
-//     reader.readAsDataURL(file);
-// }
-
-
-
+$("#addImage").click(addImage);
