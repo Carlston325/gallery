@@ -79,14 +79,14 @@ function addVideo() {
     var reader = new FileReader();
 
     reader.onload = function(e) {
-        var img = new Image();
-        img.src = e.target.result;
-        img.classList.add("video");
+        var video = document.createElement("video");
+        video.src = e.target.result;
+        video.controls = true;
 
         var div = document.createElement("div");
-        div.classList.add("video-box");
-        
-        div.appendChild(img);
+        div.className = "video-box";
+
+        div.appendChild(video);
         document.getElementById("video-container").appendChild(div);
     }
 
