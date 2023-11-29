@@ -93,6 +93,7 @@ h2 {
 }
 
 #photo-Div {
+    padding: 10px;
     border: 2px groove black;
 
     background-color: rgb(129, 255, 112);
@@ -110,11 +111,6 @@ h2 {
     align-items: center;
 }
 
-.video {
-    width: 90%;
-    border: 2px solid black;
-}
-
 #image-container {   
     width: 100%;
     height: 100%;
@@ -127,19 +123,14 @@ h2 {
     align-items: center;
 }
 
+.video {
+    width: 90%;
+    border: 2px solid black;
+}
+
 .image {
    width: 95%;
    border: 2px solid black;
-}
-
-#add-photos > label > h3{
-    background-color: rgb(255, 255, 30);
-
-    margin: 5px;
-    padding: 0px 60px;
-    border: 2px solid black;
-    
-    font-size: 100px;
 }
 
 #vidBTN {
@@ -151,7 +142,26 @@ h2 {
     order: 1;
 }
 
+#imgBTN {
+    background-color: rgb(255, 255, 30);
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+}
+
 #addVideo {
+    border-style: none;
+    background-color: rgb(230, 230, 22);
+    
+    margin: 5px;
+    padding: 0px 60px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#addImage {
     border-style: none;
     background-color: rgb(230, 230, 22);
     
@@ -175,10 +185,8 @@ h2 {
     display: none;
 }
 
-
-
-#imgBTN {
-    order: 1;
+#inputImage {
+    display: none;
 }
 
 /* section change button */
@@ -235,10 +243,6 @@ h2 {
     background-color: rgb(255, 255, 30);
     font-size: 20px;
     font-weight: 900
-}
-
-#inputImage {
-    display: none;
 }
 
 /* Animations */
