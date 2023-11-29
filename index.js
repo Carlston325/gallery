@@ -82,6 +82,7 @@ function addVideo() {
         var video = document.createElement("video");
         video.src = e.target.result;
         video.controls = true;
+        video.classList.add("video")
 
         var div = document.createElement("div");
         div.className = "video-box";
